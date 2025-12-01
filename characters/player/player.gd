@@ -1,0 +1,9 @@
+extends KinematicBody2D
+
+const SPEED = 200
+const JUMP_SPEED = 300
+
+var velocity_static: float = 0
+var velocity: Vector2 = Vector2()
+
+onready var animstate = $AnimationTree.get("parameters/playback")
