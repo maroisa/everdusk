@@ -1,7 +1,7 @@
 extends State
 
 func enter():
-	player.animstate.travel("idle")
+	player.animstate.travel("walk")
 
 func update():
 	var direction = Input.get_axis("left", "right")

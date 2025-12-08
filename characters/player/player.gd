@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const SPEED = 200
-const JUMP_SPEED = 300
+const JUMP_SPEED = 400
 
 var velocity_static: float = 0
 var velocity: Vector2 = Vector2()

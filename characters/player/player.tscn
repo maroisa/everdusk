@@ -232,6 +232,7 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=35]
 switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=36]
 switch_mode = 2
@@ -255,14 +256,7 @@ start_node = "idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
-[sub_resource type="ParticlesMaterial" id=38]
-flag_disable_z = true
-spread = 12.92
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 256.0
-initial_velocity_random = 1.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
+[sub_resource type="RectangleShape2D" id=38]
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
@@ -276,7 +270,7 @@ texture = ExtResource( 1 )
 offset = Vector2( 0, -12 )
 hframes = 8
 vframes = 9
-frame = 60
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/attack2_left = SubResource( 11 )
@@ -303,6 +297,8 @@ script = ExtResource( 8 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 0.5, 0.5 )
+smoothing_enabled = true
+smoothing_speed = 10.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -319,11 +315,5 @@ script = ExtResource( 6 )
 [node name="Normal" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
 
-[node name="Particles2D" type="Particles2D" parent="."]
-position = Vector2( 11, -13 )
-emitting = false
-amount = 100
-one_shot = true
-explosiveness = 1.0
-randomness = 1.0
-process_material = SubResource( 38 )
+[node name="AttackCollision" type="CollisionShape2D" parent="."]
+shape = SubResource( 38 )

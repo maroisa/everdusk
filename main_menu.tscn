@@ -1,0 +1,428 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://assets/Everduskbackground.jpg" type="Texture" id=1]
+[ext_resource path="res://main_menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/paper1.png" type="Texture" id=3]
+[ext_resource path="res://assets/paper2.png" type="Texture" id=4]
+[ext_resource path="res://assets/paper3.png" type="Texture" id=5]
+[ext_resource path="res://assets/paper4.png" type="Texture" id=6]
+[ext_resource path="res://assets/paper5.png" type="Texture" id=7]
+[ext_resource path="res://assets/paper6.png" type="Texture" id=8]
+[ext_resource path="res://assets/menu_fonts/x1.png" type="Texture" id=9]
+[ext_resource path="res://assets/menu_fonts/p1.png" type="Texture" id=10]
+[ext_resource path="res://assets/menu_fonts/y1.png" type="Texture" id=11]
+[ext_resource path="res://assets/menu_fonts/a1.png" type="Texture" id=12]
+[ext_resource path="res://assets/menu_fonts/l1.png" type="Texture" id=13]
+[ext_resource path="res://assets/menu_fonts/a2.png" type="Texture" id=14]
+[ext_resource path="res://assets/menu_fonts/y2.png" type="Texture" id=15]
+[ext_resource path="res://assets/menu_fonts/l2.png" type="Texture" id=16]
+[ext_resource path="res://assets/menu_fonts/p2.png" type="Texture" id=17]
+[ext_resource path="res://assets/menu_fonts/o1.png" type="Texture" id=18]
+[ext_resource path="res://assets/menu_fonts/t1.png" type="Texture" id=19]
+[ext_resource path="res://assets/menu_fonts/i1.png" type="Texture" id=20]
+[ext_resource path="res://assets/menu_fonts/n1.png" type="Texture" id=21]
+[ext_resource path="res://assets/menu_fonts/n2.png" type="Texture" id=22]
+[ext_resource path="res://assets/menu_fonts/i2.png" type="Texture" id=23]
+[ext_resource path="res://assets/menu_fonts/t2.png" type="Texture" id=24]
+[ext_resource path="res://assets/menu_fonts/o2.png" type="Texture" id=25]
+[ext_resource path="res://assets/menu_fonts/e1.png" type="Texture" id=26]
+[ext_resource path="res://assets/menu_fonts/x2.png" type="Texture" id=27]
+[ext_resource path="res://assets/menu_fonts/e2.png" type="Texture" id=28]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Paper:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "start"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Paper:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 0.588235 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 0.392157 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 1
+expand_margin_left = 8.0
+expand_margin_right = 8.0
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+anims/RESET = SubResource( 2 )
+anims/start = SubResource( 1 )
+
+[node name="BG" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Paper" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 4 )
+
+[node name="C" type="CenterContainer" parent="Paper"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VB" type="VBoxContainer" parent="Paper/C"]
+margin_left = 480.0
+margin_top = 268.0
+margin_right = 800.0
+margin_bottom = 452.0
+custom_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="Paper/C/VB"]
+margin_right = 320.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 320, 48 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="Normal" type="HBoxContainer" parent="Paper/C/VB/PlayButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="P" type="TextureRect" parent="Paper/C/VB/PlayButton/Normal"]
+margin_left = 58.0
+margin_right = 106.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 10 )
+expand = true
+
+[node name="L" type="TextureRect" parent="Paper/C/VB/PlayButton/Normal"]
+margin_left = 110.0
+margin_right = 158.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 13 )
+expand = true
+
+[node name="A" type="TextureRect" parent="Paper/C/VB/PlayButton/Normal"]
+margin_left = 162.0
+margin_right = 210.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 12 )
+expand = true
+
+[node name="Y" type="TextureRect" parent="Paper/C/VB/PlayButton/Normal"]
+margin_left = 214.0
+margin_right = 262.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 11 )
+expand = true
+
+[node name="Active" type="HBoxContainer" parent="Paper/C/VB/PlayButton"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="P" type="TextureRect" parent="Paper/C/VB/PlayButton/Active"]
+margin_left = 58.0
+margin_right = 106.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="L" type="TextureRect" parent="Paper/C/VB/PlayButton/Active"]
+margin_left = 110.0
+margin_right = 158.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="A" type="TextureRect" parent="Paper/C/VB/PlayButton/Active"]
+margin_left = 162.0
+margin_right = 210.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 14 )
+expand = true
+
+[node name="Y" type="TextureRect" parent="Paper/C/VB/PlayButton/Active"]
+margin_left = 214.0
+margin_right = 262.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 15 )
+expand = true
+
+[node name="OptionButton" type="Button" parent="Paper/C/VB"]
+margin_top = 68.0
+margin_right = 320.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 320, 48 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="Normal" type="HBoxContainer" parent="Paper/C/VB/OptionButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="O" type="TextureRect" parent="Paper/C/VB/OptionButton/Normal"]
+margin_left = 6.0
+margin_right = 54.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 18 )
+expand = true
+
+[node name="P" type="TextureRect" parent="Paper/C/VB/OptionButton/Normal"]
+margin_left = 58.0
+margin_right = 106.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 10 )
+expand = true
+
+[node name="T" type="TextureRect" parent="Paper/C/VB/OptionButton/Normal"]
+margin_left = 110.0
+margin_right = 158.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 19 )
+expand = true
+
+[node name="I" type="TextureRect" parent="Paper/C/VB/OptionButton/Normal"]
+margin_left = 162.0
+margin_right = 210.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 20 )
+expand = true
+
+[node name="O2" type="TextureRect" parent="Paper/C/VB/OptionButton/Normal"]
+margin_left = 214.0
+margin_right = 262.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 18 )
+expand = true
+
+[node name="N" type="TextureRect" parent="Paper/C/VB/OptionButton/Normal"]
+margin_left = 266.0
+margin_right = 314.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 21 )
+expand = true
+
+[node name="Active" type="HBoxContainer" parent="Paper/C/VB/OptionButton"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="O" type="TextureRect" parent="Paper/C/VB/OptionButton/Active"]
+margin_left = 6.0
+margin_right = 54.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 25 )
+expand = true
+
+[node name="P" type="TextureRect" parent="Paper/C/VB/OptionButton/Active"]
+margin_left = 58.0
+margin_right = 106.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="T" type="TextureRect" parent="Paper/C/VB/OptionButton/Active"]
+margin_left = 110.0
+margin_right = 158.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 24 )
+expand = true
+
+[node name="I" type="TextureRect" parent="Paper/C/VB/OptionButton/Active"]
+margin_left = 162.0
+margin_right = 210.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 23 )
+expand = true
+
+[node name="O2" type="TextureRect" parent="Paper/C/VB/OptionButton/Active"]
+margin_left = 214.0
+margin_right = 262.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 25 )
+expand = true
+
+[node name="N" type="TextureRect" parent="Paper/C/VB/OptionButton/Active"]
+margin_left = 266.0
+margin_right = 314.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 22 )
+expand = true
+
+[node name="ExitButton" type="Button" parent="Paper/C/VB"]
+margin_top = 136.0
+margin_right = 320.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 320, 48 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 3 )
+
+[node name="Normal" type="HBoxContainer" parent="Paper/C/VB/ExitButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="E" type="TextureRect" parent="Paper/C/VB/ExitButton/Normal"]
+margin_left = 58.0
+margin_right = 106.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 26 )
+expand = true
+
+[node name="X" type="TextureRect" parent="Paper/C/VB/ExitButton/Normal"]
+margin_left = 110.0
+margin_right = 158.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 9 )
+expand = true
+
+[node name="I" type="TextureRect" parent="Paper/C/VB/ExitButton/Normal"]
+margin_left = 162.0
+margin_right = 210.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 20 )
+expand = true
+
+[node name="T" type="TextureRect" parent="Paper/C/VB/ExitButton/Normal"]
+margin_left = 214.0
+margin_right = 262.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 19 )
+expand = true
+
+[node name="Active" type="HBoxContainer" parent="Paper/C/VB/ExitButton"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="E" type="TextureRect" parent="Paper/C/VB/ExitButton/Active"]
+margin_left = 58.0
+margin_right = 106.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 28 )
+expand = true
+
+[node name="X" type="TextureRect" parent="Paper/C/VB/ExitButton/Active"]
+margin_left = 110.0
+margin_right = 158.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 27 )
+expand = true
+
+[node name="I" type="TextureRect" parent="Paper/C/VB/ExitButton/Active"]
+margin_left = 162.0
+margin_right = 210.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 23 )
+expand = true
+
+[node name="T" type="TextureRect" parent="Paper/C/VB/ExitButton/Active"]
+margin_left = 214.0
+margin_right = 262.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 0 )
+texture = ExtResource( 24 )
+expand = true
