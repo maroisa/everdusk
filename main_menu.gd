@@ -1,29 +1,31 @@
 extends Control
 
+var state = "Main"
+
 func _ready():
-	$Paper/C/VB/PlayButton.connect("pressed", self, "on_play")
-	$Paper/C/VB/PlayButton.connect("mouse_entered", self, "toggle_text", [true, $Paper/C/VB/PlayButton])
-	$Paper/C/VB/PlayButton.connect("mouse_exited", self, "toggle_text", [false, $Paper/C/VB/PlayButton])
-	$Paper/C/VB/OptionButton.connect("pressed", self, "on_option")
-	$Paper/C/VB/OptionButton.connect("mouse_entered", self, "toggle_text", [true, $Paper/C/VB/OptionButton])
-	$Paper/C/VB/OptionButton.connect("mouse_exited", self, "toggle_text", [false, $Paper/C/VB/OptionButton])
-	$Paper/C/VB/ExitButton.connect("pressed", self, "on_exit")
-	$Paper/C/VB/ExitButton.connect("mouse_entered", self, "toggle_text", [true, $Paper/C/VB/ExitButton])
-	$Paper/C/VB/ExitButton.connect("mouse_exited", self, "toggle_text", [false, $Paper/C/VB/ExitButton])
+	$Paper/Main/VB/PlayButton.connect("pressed", self, "on_play")
+	$Paper/Main/VB/OptionButton.connect("pressed", self, "on_option")
+	$Paper/Main/VB/ExitButton.connect("pressed", self, "on_exit")
+	$Paper/Option/P/VB/BackButton.connect("pressed", self, "on_back")
 	$AnimationPlayer.connect("animation_finished", self, "on_anim_finish")
-	$Paper/C.hide()
+	for i in $Paper.get_children(): i.hide()
 
 func on_anim_finish(anim):
-	$Paper/C.show()
+	for i in $Paper.get_children(): i.hide()
+	$Paper.get_node(state).show()
 
 func on_play():
 	get_tree().change_scene("res://world.tscn")
 
-func on_option(): pass
+func on_option():
+	state = "Option"
+	for i in $Paper.get_children(): i.hide()
+	$AnimationPlayer.play("full_unwrap")
 
 func on_exit():
 	get_tree().quit()
 
-func toggle_text(active: bool, node: Control):
-	node.get_node("Active").visible = active
-	node.get_node("Normal").visible = !active
+func on_back():
+	state = "Main"
+	for i in $Paper.get_children(): i.hide()
+	$AnimationPlayer.play("full_unwrap")
