@@ -7,5 +7,5 @@ func spawn():
 			i.set_active(true)
 			i.global_position = self.global_position
 			i.velocity = Vector2(-1, 0)
-			i.position = Vector2(-40, 4)
+			i.position = Vector2(-24, 2)
 			return

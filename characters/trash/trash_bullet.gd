@@ -9,6 +9,7 @@ func _ready():
 
 func on_entered(body):
 	self.set_active(false)
+	body.emit_signal("on_hit", 1)
 
 func set_active(active: bool):
 	self.active = active
@@ -23,3 +24,7 @@ func _physics_process(delta):
 		self.position += velocity * 3
 		if self.position.length() > 500:
 			set_active(false)
+
+
+func _on_Bullet_body_entered(body):
+	print(body)
