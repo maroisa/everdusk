@@ -443,6 +443,7 @@ start_node = "idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
 [sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 16, 24 )
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 1
@@ -505,6 +506,7 @@ script = ExtResource( 6 )
 script = ExtResource( 3 )
 
 [node name="AttackCollision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -16 )
 shape = SubResource( 38 )
 
 [node name="AttackSprite" type="Sprite" parent="."]
