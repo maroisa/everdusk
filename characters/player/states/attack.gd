@@ -5,7 +5,7 @@ var initial = false
 func enter():
 	initial = false
 	
-	$"../../AttackCollision".position.x = player.velocity_static * 32
+	$"../../AttackArea".position.x = player.velocity_static * 32
 	player.velocity.x = player.velocity_static * 50
 	
 	if player.animstate.get_current_node() == "attack":
