@@ -137,6 +137,7 @@ scale_random = 1.0
 color_ramp = SubResource( 10 )
 
 [node name="Trash" type="KinematicBody2D"]
+z_index = 1
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 2 )

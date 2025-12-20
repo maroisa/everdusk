@@ -15,7 +15,7 @@ func on_anim_finish(anim):
 	$Paper.get_node(state).show()
 
 func on_play():
-	get_tree().change_scene("res://world.tscn")
+	get_tree().change_scene("res://intro/intro1.tscn")
 
 func on_option():
 	state = "Option"
