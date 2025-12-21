@@ -1,0 +1,109 @@
+#+TITLE: Everdusk
+#+AUTHOR: maroisa
+
+** Latar Belakang
+Dalam kehidupan modern saat ini, kemajuan teknologi dan industrialisasi membawa banyak kemudahan bagi manusia.
+Namun, di balik kenyamanan tersebut, muncul dampak serius terhadap lingkungan.
+Sampah dan polusi menjadi masalah global yang semakin hari kian mengkhawatirkan.
+Mulai dari limbah rumah tangga, plastik sekali pakai, hingga emisi gas buang dari pabrik dan kendaraan,
+semuanya berkontribusi terhadap rusaknya keseimbangan alam.
+
+Sayangnya, sebagian besar masyarakat kini mulai kehilangan kepedulian terhadap kondisi lingkungan di sekitarnya.
+Gaya hidup konsumtif dan keinginan untuk serba cepat membuat banyak orang abai terhadap dampak dari tindakan mereka terhadap bumi.
+Pembuangan sampah sembarangan, penggunaan bahan-bahan yang sulit terurai,
+dan ketergantungan terhadap energi fosil menjadi kebiasaan yang dianggap “normal”.
+
+Melalui game Everdusk, isu ini diangkat dalam bentuk dunia fiksi distopia sebagai refleksi dari realitas yang sedang terjadi.
+Dunia yang rusak karena polusi dan ketamakan manusia menjadi simbol dari apa yang mungkin terjadi jika masyarakat 
+terus bersikap apatis terhadap lingkungan. Dengan pendekatan naratif dan visual yang kuat,
+Everdusk berupaya menggugah kesadaran pemain akan pentingnya menjaga alam sebelum terlambat.
+
+Ketidakpekaan ini membuat kerusakan alam semakin parah. Sungai tercemar,
+udara semakin kotor, dan tanah kehilangan kesuburannya. Dalam jangka panjang,
+dampak tersebut tidak hanya mengancam ekosistem, tetapi juga kehidupan manusia itu sendiri.
+Ironisnya, masyarakat cenderung baru menyadari pentingnya menjaga lingkungan ketika bencana ekologis sudah terjadi.
+
+
+** Klasifikasi Musuh
+
+#+BEGIN_QUOTE
+*Educational Hook*
+Players learn the properties of different materials and why some are harder to break down than others.
+#+END_QUOTE
+
+*** 1. The Polymer Class (Plastics)
+
+*Description*
+These monsters are stretchy, translucent, and incredibly durable.
+Physical sword strikes do very little damage because the material just "absorbs" the impact.
+
+*Weakness*
+Thermal (Heat).
+
+*Educational Aspect*
+Heat breaks the polymer chains, turning the solid monster into a liquid (melted plastic).
+
+*Gameplay Mechanic*
+The player must use a "Torch" or "Heated Blade."
+However, melting them releases Toxic Fumes (an Area of Effect hazard),
+teaching the player that burning plastic is dangerous for the air.
+
+*** 2. The Biomass Class (Organic Waste)
+
+*Description*
+These are grotesque, rotting monsters made of food scraps and yard waste. They are soft but can regenerate health quickly.
+
+*Weakness*
+Desiccation (Salt/Lime) or Fungal Spores.
+
+*Educational Aspect*
+Decomposition. Using salt draws out moisture; using fungi (mushrooms) accelerates the natural breakdown into soil.
+
+*Gameplay Mechanic*
+If you use "Fire" on them, they explode because of Methane gas buildup.
+This teaches that organic waste in landfills is a major source of flammable greenhouse gases.
+
+*** 3. The Heavy Metal Class (E-Waste)
+
+*Description*
+Monsters made of circuit boards, old monitors, and batteries.
+They are fast and can deal "Electric" or "Leaden" damage.
+
+*Weakness*
+Magnetism or Acids.
+
+*Educational Aspect*
+E-waste is often processed using magnets to sort metals
+or strong acids to dissolve gold and copper from boards.
+
+*Gameplay Mechanic*
+A "Magnet Pulse" can stun them or rip their armor off.
+If the player hits them with a blunt weapon, they might leak Battery Acid, which creates a floor hazard.
+
+*** 4. The Silicate Class (Glass and Ceramics)
+
+*Description*
+Sharp, jagged monsters that are invisible or camouflage well in the ruins.
+
+*Weakness*
+Vibration (Sonic) or Impact.
+
+*Educational Aspect*
+Glass is highly brittle. While it lasts forever in nature,
+it cannot withstand high-frequency vibrations or direct blunt force.
+
+*Gameplay Mechanic*
+A "Heavy Hammer" or a "Bell Toll" (very Blasphemous style) shatters them instantly.
+This teaches the physical fragility versus the temporal durability of glass.
+
+
+** TUGAS
+DEADLINE: <2025-12-21 Sun>
+- [ ] Menyelesaikan asset karakter
+- [ ] Membuat klasifikasi musuh
+  - [ ] Membuat konsep
+  - [ ] Membuat assets
+  - [ ] Membuat mekanik
+- [ ] Membuat intro
+  - [ ] (opsional) membuat Splash Art
+    
