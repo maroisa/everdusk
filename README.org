@@ -33,33 +33,33 @@ Players learn the properties of different materials and why some are harder to b
 
 *** 1. The Polymer Class (Plastics)
 
-*Description*
+*Description:*
 These monsters are stretchy, translucent, and incredibly durable.
 Physical sword strikes do very little damage because the material just "absorbs" the impact.
 
-*Weakness*
+*Weakness:*
 Thermal (Heat).
 
-*Educational Aspect*
+*Educational Aspect:*
 Heat breaks the polymer chains, turning the solid monster into a liquid (melted plastic).
 
-*Gameplay Mechanic*
+*Gameplay Mechanic:*
 The player must use a "Torch" or "Heated Blade."
 However, melting them releases Toxic Fumes (an Area of Effect hazard),
 teaching the player that burning plastic is dangerous for the air.
 
 *** 2. The Biomass Class (Organic Waste)
 
-*Description*
+*Description:*
 These are grotesque, rotting monsters made of food scraps and yard waste. They are soft but can regenerate health quickly.
 
-*Weakness*
+*Weakness:*
 Desiccation (Salt/Lime) or Fungal Spores.
 
-*Educational Aspect*
+*Educational Aspect:*
 Decomposition. Using salt draws out moisture; using fungi (mushrooms) accelerates the natural breakdown into soil.
 
-*Gameplay Mechanic*
+*Gameplay Mechanic:*
 If you use "Fire" on them, they explode because of Methane gas buildup.
 This teaches that organic waste in landfills is a major source of flammable greenhouse gases.
 
@@ -102,7 +102,7 @@ DEADLINE: <2025-12-21 Sun>
 - [X] Menyelesaikan asset karakter
 - [-] Membuat klasifikasi musuh
   - [X] Membuat konsep
-  - [ ] Membuat assets
+  - [ ] Membuat 
   - [ ] Membuat mekanik
 - [ ] Membuat intro
   - [ ] (opsional) membuat Splash Art
