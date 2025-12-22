@@ -62,9 +62,7 @@ Decomposition. Using salt draws out moisture; using fungi (mushrooms) accelerate
 *Gameplay Mechanic:*
 If you use "Fire" on them, they explode because of Methane gas buildup.
 This teaches that organic waste in landfills is a major source of flammable greenhouse gases.
-
 *** 3. The Heavy Metal Class (E-Waste)
-
 *Description*
 Monsters made of circuit boards, old monitors, and batteries.
 They are fast and can deal "Electric" or "Leaden" damage.
@@ -80,7 +78,7 @@ or strong acids to dissolve gold and copper from boards.
 A "Magnet Pulse" can stun them or rip their armor off.
 If the player hits them with a blunt weapon, they might leak Battery Acid, which creates a floor hazard.
 
-*** 4. The Silicate Class (Glass and Ceramics)
+*** 4. The Silicate Class (Glass and Ceramic)
 
 *Description*
 Sharp, jagged monsters that are invisible or camouflage well in the ruins.
@@ -102,7 +100,7 @@ DEADLINE: <2025-12-21 Sun>
 - [X] Menyelesaikan asset karakter
 - [-] Membuat klasifikasi musuh
   - [X] Membuat konsep
-  - [ ] Membuat 
+  - [ ] Membuat assets
   - [ ] Membuat mekanik
 - [ ] Membuat intro
   - [ ] (opsional) membuat Splash Art
