@@ -5,9 +5,6 @@ var initial = false
 func enter():
 	initial = false
 	
-	$"../../AttackArea".position.x = player.velocity_static * 32
-	player.velocity.x = player.velocity_static * 50
-	
 	if player.animstate.get_current_node() == "attack":
 		player.animstate.travel("attack2")
 	else:
@@ -16,8 +13,6 @@ func enter():
 func update():
 	if Input.is_action_just_pressed("attack"):
 		enter()
-	
-	
 	
 	if not player.animstate.get_current_node() in ["attack", "attack2"]:
 		if !initial:

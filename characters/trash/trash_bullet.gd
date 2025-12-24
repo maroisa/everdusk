@@ -8,6 +8,7 @@ func _ready():
 	set_active(false)
 
 func on_entered(body):
+	print(body.name)
 	self.set_active(false)
 	body.emit_signal("on_hit", 1)
 

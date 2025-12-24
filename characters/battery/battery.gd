@@ -19,18 +19,15 @@ func _physics_process(delta):
 	
 	if player:
 		player_distance = player.global_position - self.global_position
+		if player_distance.length() <= 40:
+			velocity = Vector2()
+			animtree.travel("slam")
+		self.move_and_slide(velocity, Vector2.UP)
 	
 	if animtree.get_current_node() == "walk":
 		self.velocity.x = player_distance.normalized().x * 50
 		$AttackArea.position.x = player_distance.normalized().x * 40
 		$Sprite.flip_h = player_distance.normalized().x >= 0
-	
-	if player_distance.length() <= 40:
-		velocity = Vector2()
-		animtree.travel("slam")
-	
-	
-	self.move_and_slide(velocity, Vector2.UP)
 
 func on_detect(body: KinematicBody2D):
 	self.player = body
@@ -45,6 +42,8 @@ func on_hit():
 	if self.health <= 0:
 		$Sprite.modulate.a = 0.5
 		$CollisionShape2D.set_deferred("disabled", true)
+		player = null
+		animtree.travel("idle")
 	
 	$Sprite.material.set_shader_param("flash", true)
 	yield(get_tree().create_timer(0.1), "timeout")

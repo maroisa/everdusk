@@ -40,6 +40,8 @@ func on_hit():
 	if self.health <= 0:
 		$Sprite.modulate.a = 0.5
 		$CollisionShape2D.set_deferred("disabled", true)
+		$AttackArea/CollisionShape2D.set_deferred("disabled", true)
+		$AnimationPlayer.play("idle")
 	
 	$Sprite.material.set_shader_param("flash", true)
 	yield(get_tree().create_timer(0.1), "timeout")
