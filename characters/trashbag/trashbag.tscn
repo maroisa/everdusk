@@ -98,7 +98,6 @@ material = SubResource( 7 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, -4 )
 hframes = 10
-frame = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
