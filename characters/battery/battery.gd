@@ -26,7 +26,7 @@ func _physics_process(delta):
 	
 	if animtree.get_current_node() == "walk":
 		self.velocity.x = player_distance.normalized().x * 50
-		$AttackArea.position.x = player_distance.normalized().x * 40
+		$AttackArea.position.x = player_distance.normalized().x * 32
 		$Sprite.flip_h = player_distance.normalized().x >= 0
 
 func on_detect(body: KinematicBody2D):
@@ -39,12 +39,11 @@ func on_attack(body: KinematicBody2D):
 
 func on_hit():
 	self.health -= 1 
-	if self.health <= 0:
-		$Sprite.modulate.a = 0.5
-		$CollisionShape2D.set_deferred("disabled", true)
-		player = null
-		animtree.travel("idle")
-	
 	$Sprite.material.set_shader_param("flash", true)
 	yield(get_tree().create_timer(0.1), "timeout")
 	$Sprite.material.set_shader_param("flash", false)
+	
+	if self.health <= 0:
+		$Sprite.modulate.a = 0.5
+		player = null
+		animtree.travel("death")

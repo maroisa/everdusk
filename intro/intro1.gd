@@ -6,4 +6,4 @@ func _ready():
 	$C/Label.text = ""
 
 func on_finish(anim):
-	get_tree().change_scene("res://worlds/world1.tscn")
+	get_tree().change_scene("res://worlds/world.tscn")

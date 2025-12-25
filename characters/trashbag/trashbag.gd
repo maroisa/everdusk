@@ -38,10 +38,10 @@ func on_attack(body: KinematicBody2D):
 func on_hit():
 	self.health -= 1 
 	if self.health <= 0:
-		$Sprite.modulate.a = 0.5
-		$CollisionShape2D.set_deferred("disabled", true)
-		$AttackArea/CollisionShape2D.set_deferred("disabled", true)
-		$AnimationPlayer.play("idle")
+		player = null
+		$AnimationPlayer.play("death")
+		collision_mask = 1
+		collision_layer = 0
 	
 	$Sprite.material.set_shader_param("flash", true)
 	yield(get_tree().create_timer(0.1), "timeout")

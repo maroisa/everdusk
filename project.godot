@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Everdusk"
-run/main_scene="res://worlds/world1.tscn"
+run/main_scene="res://worlds/world.tscn"
 boot_splash/show_image=false
 boot_splash/bg_color=Color( 0.0784314, 0.0823529, 0.0941176, 1 )
 config/icon="res://icon.png"
