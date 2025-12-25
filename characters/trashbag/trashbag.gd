@@ -16,8 +16,6 @@ func _ready():
 	self.connect("on_hit", self, "on_hit")
 
 func _physics_process(delta):
-	if health <= 0: return
-	
 	if !is_on_floor():
 		velocity.y = GRAVITY
 	
@@ -42,6 +40,7 @@ func on_hit():
 		$AnimationPlayer.play("death")
 		collision_mask = 1
 		collision_layer = 0
+		velocity = Vector2()
 	
 	$Sprite.material.set_shader_param("flash", true)
 	yield(get_tree().create_timer(0.1), "timeout")
