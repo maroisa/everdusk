@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const GRAVITY = 250
+
 signal on_hit
 
 export var health: int = 10
@@ -14,14 +16,19 @@ func _ready():
 	$DetectArea.connect("body_entered", self, "on_detect")
 	$AttackArea.connect("body_entered", self, "on_attack")
 	self.connect("on_hit", self, "on_hit")
+	if $Sprite.material:
+		$Sprite.material = $Sprite.material.duplicate()
 
 func _physics_process(delta):
-	
 	if player:
 		player_distance = player.global_position - self.global_position
 		if player_distance.length() <= 40:
 			velocity = Vector2()
 			animtree.travel("slam")
+		
+		if !is_on_floor():
+			self.velocity.y = GRAVITY
+		
 		self.move_and_slide(velocity, Vector2.UP)
 	
 	if animtree.get_current_node() == "walk":
@@ -44,6 +51,5 @@ func on_hit():
 	$Sprite.material.set_shader_param("flash", false)
 	
 	if self.health <= 0:
-		$Sprite.modulate.a = 0.5
 		player = null
 		animtree.travel("death")

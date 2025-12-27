@@ -6,6 +6,8 @@ export var health: int = 100
 
 func _ready():
 	self.connect("on_hit", self, "on_hit")
+	if $Sprite.material:
+		$Sprite.material = $Sprite.material.duplicate()
 
 func on_hit():
 	self.health -= 1 

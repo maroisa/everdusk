@@ -15,12 +15,15 @@ onready var animstate = $AnimationTree.get("parameters/playback")
 func _ready():
 	$AttackArea.connect("body_entered", self, "on_attack")
 	self.connect("on_hit", self, "on_hit")
+	$HUD.set_max_health(health)
+	$HUD.activate_sanity()
 
 func on_attack(body):
 	body.emit_signal("on_hit")
 
 func on_hit(value):
 	self.health -= value
+	$HUD.set_health(self.health)
 	if self.health <= 0:
 		$AnimationTree.active = false
 	$Sprite.material.set_shader_param("flash", true)

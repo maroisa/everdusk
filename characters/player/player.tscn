@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://characters/player/player.png" type="Texture" id=1]
 [ext_resource path="res://classes/state_machine.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://characters/player/animtree.gd" type="Script" id=8]
 [ext_resource path="res://characters/player/player_attack.png" type="Texture" id=9]
 [ext_resource path="res://assets/hit.gdshader" type="Shader" id=10]
+[ext_resource path="res://hud.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -720,3 +721,5 @@ collision_mask = 4
 position = Vector2( 0, -16 )
 shape = SubResource( 38 )
 disabled = true
+
+[node name="HUD" parent="." instance=ExtResource( 11 )]

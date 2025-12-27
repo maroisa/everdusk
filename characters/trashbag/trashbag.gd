@@ -14,6 +14,9 @@ func _ready():
 	$DetectArea.connect("body_entered", self, "on_detect")
 	$AttackArea.connect("body_entered", self, "on_attack")
 	self.connect("on_hit", self, "on_hit")
+	
+	if $Sprite.material:
+		$Sprite.material = $Sprite.material.duplicate()
 
 func _physics_process(delta):
 	if !is_on_floor():
