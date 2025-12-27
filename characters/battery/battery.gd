@@ -10,7 +10,7 @@ export var velocity: Vector2
 var player_distance: Vector2 = Vector2(9999, 9999)
 var player: KinematicBody2D
 
-onready var animtree = $AnimationTree.get("parameters/playback")
+onready var animstate = $AnimationTree.get("parameters/playback")
 
 func _ready():
 	$DetectArea.connect("body_entered", self, "on_detect")
@@ -24,14 +24,14 @@ func _physics_process(delta):
 		player_distance = player.global_position - self.global_position
 		if player_distance.length() <= 40:
 			velocity = Vector2()
-			animtree.travel("slam")
+			animstate.travel("slam")
 		
-		if !is_on_floor():
-			self.velocity.y = GRAVITY
-		
-		self.move_and_slide(velocity, Vector2.UP)
+	if !is_on_floor():
+		self.velocity.y = GRAVITY
 	
-	if animtree.get_current_node() == "walk":
+	self.move_and_slide(velocity, Vector2.UP)
+	
+	if animstate.get_current_node() == "walk":
 		self.velocity.x = player_distance.normalized().x * 50
 		$AttackArea.position.x = player_distance.normalized().x * 32
 		$Sprite.flip_h = player_distance.normalized().x >= 0
@@ -39,7 +39,7 @@ func _physics_process(delta):
 func on_detect(body: KinematicBody2D):
 	self.player = body
 	$DetectArea/CollisionShape2D.set_deferred("disabled", true)
-	animtree.travel("walk")
+	animstate.travel("walk")
 
 func on_attack(body: KinematicBody2D):
 	body.emit_signal("on_hit", 1)
@@ -52,4 +52,7 @@ func on_hit():
 	
 	if self.health <= 0:
 		player = null
-		animtree.travel("death")
+		animstate.travel("death")
+		collision_mask = 1
+		collision_layer = 0
+		velocity = Vector2()

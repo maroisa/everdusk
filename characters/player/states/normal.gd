@@ -16,6 +16,7 @@ func update():
 	if not player.is_on_floor():
 		machine.travel("Jump")
 	else:
+		player.velocity.y = 10
 		if Input.is_action_just_pressed("jump"):
 			player.velocity.y = -player.JUMP_SPEED
 			machine.travel("Jump")
