@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://hud.gd" type="Script" id=1]
 
@@ -7,6 +7,32 @@ bg_color = Color( 0.490196, 0, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.117647, 0.113725, 0.113725, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0745098, 0.129412, 0.415686, 1 )
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform float intensity = 1.0;
+uniform float softness = 0.5;
+
+void fragment() {
+    // Calculate the distance from the center (0.5, 0.5)
+    float distance_from_center = distance(UV, vec2(0.5));
+    
+    // Create the vignette mask using smoothstep
+    // The mask will be 0.0 at the center and 1.0 at the edges
+    float vignette = smoothstep(0.5 - softness, 0.5 + softness, distance_from_center * intensity);
+    
+    // Apply the vignette to the alpha channel of the ColorRect
+    COLOR = vec4(0.0, 0.0, 0.0, vignette);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/intensity = 1.0
+shader_param/softness = 0.5
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -41,6 +67,14 @@ margin_right = 1240.0
 margin_bottom = 32.0
 rect_min_size = Vector2( 320, 32 )
 size_flags_horizontal = 0
+custom_styles/fg = SubResource( 3 )
+value = 3.69
 
 [node name="SanityTimer" type="Timer" parent="."]
 wait_time = 0.4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )

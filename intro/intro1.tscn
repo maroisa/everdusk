@@ -91,3 +91,20 @@ valign = 1
 autoplay = "default"
 anims/RESET = SubResource( 3 )
 anims/default = SubResource( 1 )
+
+[node name="M" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 40
+custom_constants/margin_bottom = 40
+
+[node name="SkipButton" type="Button" parent="M"]
+margin_left = 1120.0
+margin_top = 648.0
+margin_right = 1240.0
+margin_bottom = 680.0
+rect_min_size = Vector2( 120, 32 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "SKIP"
+flat = true

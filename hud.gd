@@ -6,7 +6,7 @@ var player: KinematicBody2D
 
 func _ready():
 	$SanityTimer.connect("timeout", self, "on_sanity_drained")
-
+	$ColorRect.material.set_shader_param("intensity", 0)
 
 func set_max_health(value):
 	$M/HB/HealthBar.max_value = value
@@ -22,3 +22,4 @@ func activate_sanity():
 
 func on_sanity_drained():
 	$M/HB/SanityBar.value -= 1
+	$ColorRect.material.set_shader_param("intensity", 2 - ($M/HB/SanityBar.value / 100 * 2))
