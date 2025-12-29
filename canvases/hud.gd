@@ -39,10 +39,16 @@ func on_selected(choice):
 		$M/HB/SanityBar.value += 30
 		$C/Label.text = "Benar!!"
 		$C/AnimationPlayer.play("pop")
+		$CorrectEffect.pitch_scale = 1
+		$CorrectEffect.play()
+	
 	else:
 		$M/HB/SanityBar.value -= 5
 		$C/Label.text = "Salah!!"
 		$C/AnimationPlayer.play("pop")
+		$CorrectEffect.pitch_scale = 0.5
+		$CorrectEffect.play()
+		
 	
 	get_parent().on_selected()
 	$Selection.hide()

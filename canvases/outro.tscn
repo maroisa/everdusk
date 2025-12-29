@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/DePixelHalbfett.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://canvases/outro.gd" type="Script" id=2]
 
 [sub_resource type="Animation" id=3]
@@ -58,9 +58,6 @@ tracks/1/keys = {
 "values": [ "Mari kita jaga kelestarian bumi dengan disiplin membuang sampah pada tempatnya dan mengurangi penggunaan plastik sekali pakai mulai sekarang.", "Setiap sampah yang kita kelola dengan benar adalah langkah nyata untuk mencegah banjir, penyakit, serta kerusakan ekosistem yang mengancam masa depan.", "Jangan biarkan lingkungan kita terkubur limbah; bertindaklah hari ini demi mewujudkan dunia yang lebih bersih, sehat, dan layak huni bagi generasi mendatang." ]
 }
 
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 1 )
-
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 2 )
 
@@ -84,7 +81,7 @@ margin_top = 325.0
 margin_right = 1120.0
 margin_bottom = 394.0
 rect_min_size = Vector2( 960, 0 )
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Menjaga lingkungan dari tumpukan sampah bukan lagi sekadar imbauan"
 autowrap = true
 percent_visible = 0.0

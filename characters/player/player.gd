@@ -24,12 +24,17 @@ func _ready():
 
 func on_attack(body):
 	body.emit_signal("on_hit")
+	$HitSound.pitch_scale = rand_range(1, 1.5)
+	$HitSound.play()
+
 
 func on_hit(value):
 	self.health -= value
 	$HUD.set_health(self.health)
 	if self.health <= 0:
 		$AnimationTree.active = false
+		Switcher.switch_to("res://canvases/death.tscn")
+	
 	$Sprite.material.set_shader_param("flash", true)
 	yield(get_tree().create_timer(0.1), "timeout")
 	$Sprite.material.set_shader_param("flash", false)

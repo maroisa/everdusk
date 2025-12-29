@@ -1,11 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://assets/DePixelHalbfett.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/font.tres" type="DynamicFont" id=1]
 [ext_resource path="res://canvases/intro1.gd" type="Script" id=2]
-
-[sub_resource type="DynamicFont" id=2]
-size = 24
-font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -78,11 +74,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Label" type="Label" parent="C"]
-margin_left = 596.0
-margin_top = 344.0
-margin_right = 684.0
-margin_bottom = 375.0
-custom_fonts/font = SubResource( 2 )
+margin_left = 610.0
+margin_top = 349.0
+margin_right = 670.0
+margin_bottom = 370.0
+custom_fonts/font = ExtResource( 1 )
 text = "2067"
 align = 1
 valign = 1

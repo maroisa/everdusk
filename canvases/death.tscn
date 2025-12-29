@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://canvases/insanity.gd" type="Script" id=1]
+[ext_resource path="res://canvases/death.gd" type="Script" id=1]
 [ext_resource path="res://assets/font.tres" type="DynamicFont" id=2]
 
 [sub_resource type="Animation" id=1]
@@ -31,7 +31,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Insanity" type="CanvasLayer"]
+[node name="Death" type="CanvasLayer"]
 layer = 5
 script = ExtResource( 1 )
 
@@ -45,7 +45,7 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = ExtResource( 2 )
-text = "Kamu gagal mempertahankan kewarasanmu."
+text = "Kamu gagal bertahan hidup."
 align = 1
 valign = 1
 percent_visible = 0.0
