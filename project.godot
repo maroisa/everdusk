@@ -38,6 +38,10 @@ boot_splash/show_image=false
 boot_splash/bg_color=Color( 0.0784314, 0.0823529, 0.0941176, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+Switcher="*res://canvases/switcher.tscn"
+
 [display]
 
 window/size/width=1280
@@ -103,6 +107,7 @@ attack={
 2d_physics/layer_1="env"
 2d_physics/layer_2="player"
 2d_physics/layer_3="enemy"
+2d_physics/layer_4="destroyed"
 
 [physics]
 

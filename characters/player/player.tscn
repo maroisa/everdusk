@@ -10,7 +10,7 @@
 [ext_resource path="res://characters/player/animtree.gd" type="Script" id=8]
 [ext_resource path="res://characters/player/player_attack.png" type="Texture" id=9]
 [ext_resource path="res://assets/hit.gdshader" type="Shader" id=10]
-[ext_resource path="res://hud.tscn" type="PackedScene" id=11]
+[ext_resource path="res://canvases/hud.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )

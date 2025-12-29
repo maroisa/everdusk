@@ -7,7 +7,7 @@ func _ready():
 	$C/Label.text = ""
 
 func on_finish(anim):
-	get_tree().change_scene("res://worlds/world.tscn")
+	Switcher.switch_to("res://worlds/world.tscn")
 
 func on_skip():
-	get_tree().change_scene("res://worlds/world.tscn")
+	Switcher.switch_to("res://worlds/world.tscn")

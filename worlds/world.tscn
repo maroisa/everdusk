@@ -1,7 +1,9 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://assets/Everduskbackground.jpg" type="Texture" id=1]
+[ext_resource path="res://characters/moss/moss.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/dirt_autotile.png" type="Texture" id=3]
+[ext_resource path="res://characters/trashbag/trashbag.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/audio/dirtmouth.ogg" type="AudioStream" id=5]
 [ext_resource path="res://characters/player/player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://characters/battery/battery.tscn" type="PackedScene" id=7]
@@ -336,3 +338,15 @@ shape = SubResource( 42 )
 
 [node name="Battery" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 856, 112 )
+
+[node name="Battery2" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 304, 112 )
+
+[node name="Moss" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 1440, 104 )
+
+[node name="Trashbag" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 1600, 80 )
+
+[node name="Trashbag2" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 2096, 80 )

@@ -22,4 +22,10 @@ func activate_sanity():
 
 func on_sanity_drained():
 	$M/HB/SanityBar.value -= 1
-	$ColorRect.material.set_shader_param("intensity", 2 - ($M/HB/SanityBar.value / 100 * 2))
+	$ColorRect.material.set_shader_param("intensity", 2 - $M/HB/SanityBar.value / 50)
+	
+	if $M/HB/SanityBar.value <= 0:
+		$SanityTimer.stop()
+		var tw = create_tween().tween_property($ColorRect, "material:shader_param/intensity", 20, 2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		yield(tw, "finished")
+		get_tree().change_scene("res://canvases/insanity.tscn")
