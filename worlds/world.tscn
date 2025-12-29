@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/Everduskbackground.jpg" type="Texture" id=1]
 [ext_resource path="res://characters/moss/moss.tscn" type="PackedScene" id=2]
@@ -300,10 +300,14 @@ points = PoolVector2Array( 32, 32, 0, 32, 0, 8, 32, 8 )
 [sub_resource type="RectangleShape2D" id=42]
 extents = Vector2( 10000, 100 )
 
+[sub_resource type="RectangleShape2D" id=43]
+extents = Vector2( 100, 1000 )
+
 [node name="World" type="Node2D"]
 script = ExtResource( 8 )
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( 24, 112 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -315,7 +319,8 @@ tile_data = PoolIntArray( -1966106, 0, 8, -1966105, 0, 10, -1966104, 0, 10, -196
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2( 0.2, 0.2 )
+motion_scale = Vector2( 0.1, 0.1 )
+motion_mirroring = Vector2( 1344, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 z_index = -2
@@ -342,11 +347,37 @@ position = Vector2( 856, 112 )
 [node name="Battery2" parent="Enemies" instance=ExtResource( 7 )]
 position = Vector2( 304, 112 )
 
+[node name="Battery4" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 3264, 64 )
+
 [node name="Moss" parent="Enemies" instance=ExtResource( 2 )]
 position = Vector2( 1440, 104 )
+
+[node name="Moss3" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 2824, 88 )
+
+[node name="Moss2" parent="Enemies" instance=ExtResource( 2 )]
+position = Vector2( 2256, 104 )
 
 [node name="Trashbag" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 1600, 80 )
 
+[node name="Battery3" parent="Enemies" instance=ExtResource( 7 )]
+position = Vector2( 2400, 112 )
+
+[node name="Trashbag3" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( 2584, 104 )
+
+[node name="Trashbag4" parent="Enemies" instance=ExtResource( 4 )]
+position = Vector2( -288, 40 )
+
 [node name="Trashbag2" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 2096, 80 )
+
+[node name="WinArea" type="Area2D" parent="."]
+position = Vector2( 4120, 0 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+shape = SubResource( 43 )

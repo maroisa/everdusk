@@ -1,6 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://canvases/hud.gd" type="Script" id=1]
+[ext_resource path="res://assets/wastemark_plastic.png" type="Texture" id=2]
+[ext_resource path="res://assets/wastemark_organic.png" type="Texture" id=3]
+[ext_resource path="res://assets/wastemark_electric.png" type="Texture" id=4]
+[ext_resource path="res://assets/DePixelHalbfett.otf" type="DynamicFontData" id=5]
 
 [sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
@@ -33,6 +37,111 @@ bg_color = Color( 0.117647, 0.113725, 0.113725, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0745098, 0.129412, 0.415686, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 0.196078 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.298039, 0.298039, 0.298039, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 2
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 2
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Label:rect_min_size:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 200, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "pop"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Label:rect_min_size:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 200, -0.25, 0, 0, 108.786, 400, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5 )
+}
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -77,4 +186,80 @@ custom_styles/fg = SubResource( 3 )
 value = 3.69
 
 [node name="SanityTimer" type="Timer" parent="."]
-wait_time = 0.01
+wait_time = 0.25
+
+[node name="Selection" type="CenterContainer" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="M" type="MarginContainer" parent="Selection"]
+margin_left = 540.0
+margin_top = 178.0
+margin_right = 740.0
+margin_bottom = 542.0
+custom_constants/margin_bottom = 300
+
+[node name="HB" type="HBoxContainer" parent="Selection/M"]
+margin_right = 200.0
+margin_bottom = 64.0
+
+[node name="electric" type="Button" parent="Selection/M/HB"]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
+
+[node name="organic" type="Button" parent="Selection/M/HB"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[node name="plastic" type="Button" parent="Selection/M/HB"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
+focus_mode = 0
+mouse_filter = 1
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/normal = SubResource( 6 )
+icon = ExtResource( 2 )
+icon_align = 1
+expand_icon = true
+
+[node name="C" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="C"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 602.0
+margin_top = 260.0
+margin_right = 678.0
+margin_bottom = 460.0
+rect_min_size = Vector2( 0, 200 )
+custom_fonts/font = SubResource( 9 )
+text = "Benar!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="C"]
+anims/RESET = SubResource( 11 )
+anims/pop = SubResource( 10 )

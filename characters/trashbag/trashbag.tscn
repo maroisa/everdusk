@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://characters/trashbag/trashbag.png" type="Texture" id=1]
 [ext_resource path="res://characters/trashbag/trashbag.gd" type="Script" id=2]
@@ -163,6 +163,9 @@ radius = 160.0
 [sub_resource type="CircleShape2D" id=8]
 radius = 16.0
 
+[sub_resource type="CircleShape2D" id=11]
+radius = 24.0
+
 [node name="Trashbag" type="KinematicBody2D"]
 collision_layer = 4
 collision_mask = 3
@@ -200,4 +203,12 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 shape = SubResource( 8 )
+disabled = true
+
+[node name="DestroyArea" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyArea"]
+shape = SubResource( 11 )
 disabled = true

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 const GRAVITY = 250
+const type = "electric"
 
 signal on_hit
 

@@ -3,8 +3,12 @@ extends CanvasLayer
 const MAX_SANITY = 100
 
 var player: KinematicBody2D
+var current_choice
 
 func _ready():
+	for i in $Selection/M/HB.get_children():
+		i.connect("pressed", self, "on_selected", [i.name])
+	
 	$SanityTimer.connect("timeout", self, "on_sanity_drained")
 	$ColorRect.material.set_shader_param("intensity", 0)
 
@@ -29,3 +33,23 @@ func on_sanity_drained():
 		var tw = create_tween().tween_property($ColorRect, "material:shader_param/intensity", 20, 2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 		yield(tw, "finished")
 		get_tree().change_scene("res://canvases/insanity.tscn")
+
+func on_selected(choice):
+	if choice == current_choice:
+		$M/HB/SanityBar.value += 30
+		$C/Label.text = "Benar!!"
+		$C/AnimationPlayer.play("pop")
+	else:
+		$M/HB/SanityBar.value -= 5
+		$C/Label.text = "Salah!!"
+		$C/AnimationPlayer.play("pop")
+	
+	get_parent().on_selected()
+	$Selection.hide()
+
+func set_choice(choice):
+	$Selection.show()
+	current_choice = choice
+
+func hide_choice():
+	$Selection.hide()

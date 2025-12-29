@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const type = "plastic"
+
 signal on_hit
 
 const GRAVITY = 250
@@ -41,6 +43,7 @@ func on_hit():
 	if self.health <= 0:
 		player = null
 		$AnimationPlayer.play("death")
+		$DestroyArea/CollisionShape2D.set_deferred("disabled", false)
 		collision_mask = 1
 		collision_layer = 0
 		velocity = Vector2()
