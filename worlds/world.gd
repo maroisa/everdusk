@@ -7,5 +7,5 @@ func _ready():
 func on_reset(body):
 	get_tree().reload_current_scene()
 
-func on_win():
+func on_win(body):
 	Switcher.switch_to("res://canvases/outro.tscn")

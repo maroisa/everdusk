@@ -4,7 +4,6 @@ var state = "Main"
 
 func _ready():
 	$Paper/Main/VB/PlayButton.connect("pressed", self, "on_play")
-	$Paper/Main/VB/OptionButton.connect("pressed", self, "on_option")
 	$Paper/Main/VB/ExitButton.connect("pressed", self, "on_exit")
 	$Paper/Option/P/VB/BackButton.connect("pressed", self, "on_back")
 	$AnimationPlayer.connect("animation_finished", self, "on_anim_finish")

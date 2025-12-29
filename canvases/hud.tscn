@@ -78,6 +78,8 @@ corner_radius_bottom_left = 4
 corner_detail = 2
 
 [sub_resource type="DynamicFont" id=9]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 5 )
 
 [sub_resource type="Animation" id=11]
@@ -186,7 +188,7 @@ custom_styles/fg = SubResource( 3 )
 value = 3.69
 
 [node name="SanityTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.2
 
 [node name="Selection" type="CenterContainer" parent="."]
 visible = false
